@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from 'react'
 import '../App.css'
-import { useHistory } from 'react-router-dom'
+import React, { useRef, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 AOS.init();
@@ -29,12 +29,12 @@ export default function LandingPage() {
         </div>
       </div>
       <div id="bg">
-        <img  src="concert.jpg" alt="concert" />
+        <img  src="concert.jpg" alt="concert" data-aos="fade-up" data-aos-duration="2000" />
       </div>
       
       <div className="content"  data-aos="zoom-in"  data-aos-duration="1000" style={{ backgroundColor: 'rgba(14, 18, 66, 1)', padding: '20px', height: '500px' }}>
         <div>
-            <img src="earth.png" alt="earth" style={{ marginRight: '30px', padding: '20px', marginBottom: '50px' }} />
+            <img  className= "earth" src="earth.png" alt="earth"  />
         </div>
         <div data-aos="zoom-in" data-aos-delay="100" data-aos-duration="1000" className="content-1">
             <div>
@@ -45,22 +45,45 @@ export default function LandingPage() {
         </div>
         
       </div>
-        <div className="gradient" style={{ height: '1200px', background: 'linear-gradient( rgba(14, 18, 66, 1), rgba(69, 182, 144, 1))' }}>
+        <div className="gradient" style={{ height: '1680px', background: 'linear-gradient( rgba(14, 18, 66, 1), rgba(69, 182, 144, 1))' }}>
           <div className="d-flex justify-content-start mt-5" style={{ color: 'white', textAlign: 'left' }}>
-            <img className="kaset " src="kaset.jpg" style={{ width: '300px', marginLeft: '60px', marginTop: '50px', border: '10px solid white' }} />
-            <div style={{ margin: '50px' }} >
-              <h1 style={{  fontSize: '50px' }}>Thousand</h1>
+            <img className="kaset " src="kaset.jpg"  data-aos="slide-right" data-aos-duration="1000"  style={{ width: '300px', marginLeft: '60px', marginTop: '50px', border: '10px solid white' }} />
+            <div  data-aos="fade" data-aos-duration="2000" style={{ margin: '50px', fontFamily: 'Exo' }} >
+              <h1 style={{  fontSize: '50px' }}>Thousands</h1>
               <h1 style={{  fontSize: '50px' }}>genres in</h1>
               <h1 style={{  fontSize: '50px' }}>one web</h1>
             </div>
           </div>
           <div className="d-flex justify-content-end mt-5" style={{ color: 'white', textAlign: 'right' }}>
-            <div style={{ margin: '50px' }} >
-              <h1 style={{  fontSize: '50px' }}>Play the songs</h1>
+            <div  data-aos="fade" data-aos-duration="2000" style={{ margin: '50px' }} >
+              <h1 style={{  fontSize: '50px', fontFamily: 'Exo' }}>Play the songs</h1>
               <h1 style={{  fontSize: '50px' }}>just one</h1>
               <h1 style={{  fontSize: '50px' }}>click</h1>
             </div>
-            <img className="kaset " src="austin.jpg" style={{ width: '300px', marginRight: '60px', marginTop: '50px', border: '10px solid white' }} />
+            <img className="kaset " src="austin.jpg" data-aos="slide-left" data-aos-duration="1000" style={{ width: '300px', marginRight: '60px', marginTop: '50px', border: '10px solid white' }} />
+          </div>
+          {/* <div className="d-flex row justify-content-center" style={{ marginTop: '100px', fontWeight: 'bold' }}>
+            <div style={{ backgroundColor: 'white', marginTop: '15px'}}>
+              <h1 style={{ fontSize: '50px', fontWeight: 'bold' }}>LET'S</h1>
+            </div>
+            <div style={{ backgroundColor: 'white', marginTop: '15px'}}>
+              <h1 style={{ fontSize: '50px', fontWeight: 'bold' }}>CHECK IT OUT</h1>
+            </div>
+            <div style={{ backgroundColor: 'white', marginTop: '15px'}}>
+              <h1 style={{ fontSize: '50px', fontWeight: 'bold', textDecoration: 'none'  }}><Link href="/home" style={{ color: 'rgba(69, 182, 144, 1)' }}>HERE</Link></h1>
+            </div>
+          </div> */}
+          <div style={{ position: "relative" }} >
+            <div className="" data-aos="fade" data-aos-delay="500"  data-aos-duration="1000" style={{ position: 'absolute', top: '20%', left: '38%', margin: '-100px 20 -10 -170px',  zIndex: '1',  }}>
+              <Link to="/home"><img src="spotify (2).svg" alt="spotify" style={{ width: '280px' }} /></Link>
+              <Link to="/home" style={{ textDecoration: 'none', color: 'white' }}><h1 style={{ fontFamily: 'Exo', fontSize: '50px' }}> Come to our world</h1></Link>
+            </div>
+            <div className="nav d-flex col mt-5" style={{ zIndex: '-1' }}>
+              <div data-aos="slide-right" data-aos-duration="1000" style={{ backgroundColor: 'rgba(69, 182, 144, 1)', width: '50%', height: '600px' }}>
+              </div>
+              <div data-aos="slide-left" data-aos-duration="1000" style={{ backgroundColor: 'rgba(69, 182, 144, 1)', width: '50%',height: '600px'}}>  
+              </div>
+            </div>
           </div>
         </div>
     </div>
