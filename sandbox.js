@@ -47,5 +47,3 @@ const dataParserrrr = (genres) => {
     fs.writeFileSync('./chartData.json', JSON.stringify(currentGenres, null, 2))
   })  
 }
-
-dataParserrrr(genres)

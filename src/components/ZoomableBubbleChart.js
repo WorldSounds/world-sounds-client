@@ -49,7 +49,7 @@ export default class ZoomableBubbleChart extends React.Component {
 
   render() {
     return (
-      <div style={{ width: "", height: "200vh" }}>
+      <div style={{ width: "", height: "300vh" }}>
         <ReactBubbleChart
           {...this.props}
           className="chart__bubble"
