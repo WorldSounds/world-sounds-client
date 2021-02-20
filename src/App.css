@@ -109,3 +109,16 @@ html body {
   padding: '20px'; 
   height: '1000px';
 }
+
+.chart__bubble {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+.chart__bubble .bubble {
+  fill: transparent;
+}
+
+.chart__bubble .leaf {
+  fill: #45B690;
+}
