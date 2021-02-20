@@ -3,6 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+<<<<<<< HEAD
+=======
+import 'bootstrap'
+import '@popperjs/core'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+>>>>>>> 4314143ca58003d17271b04cb2f1020ce1e582b5
 
 ReactDOM.render(
   <React.StrictMode>

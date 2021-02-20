@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 import { useState, useEffect } from 'react'
 import ZoomableBubbleChart from './components/ZoomableBubbleChart'
@@ -23,6 +24,38 @@ function App() {
       <h1>loading</h1>
     )
   }
+=======
+import './App.css';
+import { 
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'
+import {
+  ArtistList,
+  Home,
+  LandingPage
+} from './pages'
+
+function App() {
+  return (
+    <div className="App">
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <LandingPage />
+          </Route>
+          <Route path="/home" >
+            <Home />
+          </Route>
+          <Route path="/artists" >
+            <ArtistList />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
+  );
+>>>>>>> 4314143ca58003d17271b04cb2f1020ce1e582b5
 }
 
 export default App;

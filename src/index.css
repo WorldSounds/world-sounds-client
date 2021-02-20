@@ -11,26 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-/* dari code sanbox */
-.App {
-  background-color: #0E1242;
-  font-family: sans-serif;
-  text-align: center;
-  font-weight: bold;
-  font-size: 0.5rem;
-  color: #ffff;
-}
-
-.chart__bubble {
-  height: 100%;
-  overflow: hidden;
-  width: 100%;
-}
-.chart__bubble .bubble {
-  fill: transparent;
-}
-
-.chart__bubble .leaf {
-  fill: #45B690;
-}
