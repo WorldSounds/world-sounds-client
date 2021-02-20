@@ -6,10 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap'
 import '@popperjs/core'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
-// ..
-AOS.init();
+
 
 ReactDOM.render(
   <React.StrictMode>

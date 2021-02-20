@@ -48,13 +48,14 @@ html body {
   font-weight: bold;
   position: absolute;
   top: 50%;
-  left: 38%;
+  left: 30%;
   margin-top: -50px;
   margin-left: -50px;
   text-shadow: 1px 1px 1px #000;
   z-index: 1;
 }
 
+ /* artists-card style in artists list page*/
 .artist-card {
   background-color: rgba(69, 182, 144, 1);
   border-radius: 10px;
@@ -79,4 +80,32 @@ html body {
   margin-left: -20px;
   text-shadow: 1px 1px 1px #000;
   text-align: left;
+}
+
+/* number of genres, artists, and songs */
+.number {
+  color: rgba(69, 182, 144, 1);
+  font-family: 'Exo';
+  font-weight: bold;
+  position: absolute;
+  top: 100%;
+  left: 15%;
+  margin: auto;
+  text-shadow: 1px 1px 1px #000;
+}
+
+.number h2 {
+  font-size: 70px;
+  font-weight: 900;
+}
+
+.number h4 {
+  font-size: 50px;
+  color: white;
+}
+
+.gradient {
+  background-color: linear-gradient ( rgba(14, 18, 66, 1), rgba(69, 182, 144, 1)); 
+  padding: '20px'; 
+  height: '1000px';
 }
