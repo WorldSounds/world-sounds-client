@@ -4,7 +4,8 @@ import {
   LoginModal,
   Navbar,
   RegisterModal,
-  BubbleChartParent
+  BubbleChartParent,
+  Navbar
 } from '../components';
 import "../../node_modules/react-bubble-chart/src/style.css";
 import genres from '../Assets/JSON/chartData.json'

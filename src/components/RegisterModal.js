@@ -12,29 +12,29 @@ export default function RegisterModal() {
         <div className="modal-body" style={{fontFamily: 'Roboto' }}>
         {/* Register FORM */}
         <form>
-          <div className="d-flex col">
-            <label style={{ marginRight: '35px' }}>Email</label>
-            <input className="form-control" type="text"  name="email" style={{ borderRadius: '20px', borderColor: 'rgba(69, 182, 144, 1)'}}/><br></br>
+          <div className="form-floating mt-2">
+            <input className="form-control" type="text"  name="email" style={{ borderRadius: '10px', borderColor: 'rgba(69, 182, 144, 1)'}}/>
+            <label className="form-label">Email</label>
           </div>
-          <div className="d-flex col mt-2">
-            <label style={{ marginRight: '5px'}} >Username</label>
-            <input className="form-control" type="password" name="password" style={{ borderRadius: '20px', borderColor: 'rgba(69, 182, 144, 1)'}}/>
+          <div className="form-floating mt-2">
+            <input className="form-control" type="text" name="username" style={{ borderRadius: '10px', borderColor: 'rgba(69, 182, 144, 1)'}}/>
+            <label className="form-label">Username</label>
           </div>
-          <div className="d-flex col mt-2">
-            <label style={{ marginRight: '5px'}} >Password</label>
-            <input className="form-control" type="password" name="password" style={{ borderRadius: '20px', borderColor: 'rgba(69, 182, 144, 1)'}}/>
+          <div className="form-floating mt-2">
+            <input className="form-control" type="password" name="password"  style={{ borderRadius: '10px', borderColor: 'rgba(69, 182, 144, 1)'}}/>
+            <label className="form-label">Password</label>
           </div>
         </form>
         </div>
         <div className="d-flex row">
          <div>
-          <button type="button" className="btn btn-primary" style={{ borderRadius: '20px', width: '300px' }}>Login</button><br></br>
+          <button type="button" className="btn btn-primary" style={{ borderRadius: '20px', width: '300px', backgroundColor: 'rgba(14, 18, 66, 1)', border: 'none'  }}>Register</button><br></br>
          </div>
-         <div className="mt-1">
+         <div className="mt-2">
           <button type="button" className="btn btn-primary" style={{ borderRadius: '20px', width: '300px', backgroundColor: 'rgba(69, 182, 144, 1)', border: 'none', color: 'black'  }}><img src="spotify.svg" alt="spotify icon" style={{ width: '25px' }} /> Continue with Spotify</button><br></br>
          </div>
          <div className="mt-2">
-          <p>have an account? <a href=""  data-bs-dismiss="modal" aria-label="Close" data-bs-toggle="modal" data-bs-target="#loginModal" >Logn</a></p>
+          <p>have an account? <a href=""  data-bs-dismiss="modal" aria-label="Close" data-bs-toggle="modal" data-bs-target="#loginModal" >Login</a></p>
          </div>
         </div>
       </div>
