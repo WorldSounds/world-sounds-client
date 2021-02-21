@@ -7,7 +7,8 @@ import {
 import {
   ArtistList,
   Home,
-  LandingPage
+  LandingPage,
+  Children
 } from './pages'
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path="/artists" >
             <ArtistList />
+          </Route>
+          <Route path="/:children">
+            <Children/>
           </Route>
         </Switch>
       </Router>

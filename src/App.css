@@ -7,7 +7,7 @@ html body {
 .App {
   text-align: center;
   font-family: 'Roboto';
-  
+
 }
 
 /*Link text in Navbar*/
@@ -114,9 +114,10 @@ html body {
   height: 100%;
   overflow: hidden;
   width: 100%;
+  color: whitesmoke;
 }
 .chart__bubble .bubble {
-  fill: transparent;
+  fill: white;
 }
 
 .chart__bubble .leaf {
