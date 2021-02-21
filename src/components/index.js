@@ -4,3 +4,4 @@ export { default as RegisterModal } from './RegisterModal'
 export { default as BubbleChartParent } from './BubbleChartParent'
 export { default as BubbleChartChildren } from './BubbleChartChildren'
 export { default as ArtistCard } from './artistsCard'
+
