@@ -1,9 +1,7 @@
 import React from 'react'
 import '../App.css'
 import { 
-  LoginModal,
-  Navbar,
-  RegisterModal 
+  Navbar
 } from '../components';
 
 

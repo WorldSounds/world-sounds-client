@@ -11,10 +11,19 @@ html body {
 }
 
 /*Link text in Navbar*/
+.App-navbar ul li {
+  list-style-type: none;
+}
+
 .App-navbar ul li a {
   color: rgba(69, 182, 144, 1);
   text-decoration: none;
+ 
 }
+
+
+
+
 
 .landing {
   font-family: 'Roboto';
@@ -53,17 +62,6 @@ html body {
 }
 
  /* artists-card style in artists list page*/
-.artist-card {
-  background-color: rgba(69, 182, 144, 1);
-  border-radius: 10px;
-  width: 230px;
-  height: 280px;
-  margin: 3px;
-} 
-
-.artist-card img {
-  margin-top: 10px;
-}
 
 
 .content-1 {
@@ -113,4 +111,10 @@ html body {
   background: linear-gradient(#26a787, rgba(69, 182, 144, 1));
   height: 800px;
 
+}
+
+.logo {
+  -webkit-filter: drop-shadow(3px 3px 3px rgb(30, 30, 34) );
+  filter: drop-shadow(3px 3px 3px rgb(30, 30, 34));
+  width: 380px;
 }
