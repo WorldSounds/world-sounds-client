@@ -11,10 +11,19 @@ html body {
 }
 
 /*Link text in Navbar*/
+.App-navbar ul li {
+  list-style-type: none;
+}
+
 .App-navbar ul li a {
   color: rgba(69, 182, 144, 1);
   text-decoration: none;
+ 
 }
+
+
+
+
 
 .landing {
   font-family: 'Roboto';
@@ -35,7 +44,6 @@ html body {
   left: 0; 
   right: 0; 
   bottom: 0; 
-  margin: auto; 
   min-width: 50%;
   min-height: 50%;
   opacity: 0.9;
@@ -44,29 +52,16 @@ html body {
 
 /*Text in landing page*/
 .welcome {
-  font-family: 'Exo';
-  font-weight: bold;
   position: absolute;
+  font-family: 'Exo';
+  font-weight: 900;
   top: 50%;
   left: 30%;
-  margin-top: -50px;
-  margin-left: -50px;
+  margin: auto;
   text-shadow: 1px 1px 1px #000;
-  z-index: 1;
 }
 
  /* artists-card style in artists list page*/
-.artist-card {
-  background-color: rgba(69, 182, 144, 1);
-  border-radius: 10px;
-  width: 230px;
-  height: 280px;
-  margin: 3px;
-} 
-
-.artist-card img {
-  margin-top: 10px;
-}
 
 
 .content-1 {
@@ -80,6 +75,14 @@ html body {
   margin-left: -20px;
   text-shadow: 1px 1px 1px #000;
   text-align: left;
+}
+
+.earth {
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(4, 6, 29) );
+  filter: drop-shadow(5px 5px 5px rgb(4, 6, 29));
+  margin-right: 30px; 
+  padding: 20px; 
+  margin-bottom: 50px;
 }
 
 /* number of genres, artists, and songs */
@@ -104,11 +107,17 @@ html body {
   color: white;
 }
 
-.gradient {
-  background-color: linear-gradient ( rgba(14, 18, 66, 1), rgba(69, 182, 144, 1)); 
-  padding: '20px'; 
-  height: '1000px';
+.end-landing {
+  background: linear-gradient(#26a787, rgba(69, 182, 144, 1));
+  height: 800px;
+
 }
+
+
+.logo {
+  -webkit-filter: drop-shadow(3px 3px 3px rgb(30, 30, 34) );
+  filter: drop-shadow(3px 3px 3px rgb(30, 30, 34));
+  width: 380px;
 
 .chart__bubble {
   height: 100%;

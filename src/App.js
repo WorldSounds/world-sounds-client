@@ -7,7 +7,8 @@ import {
 import {
   ArtistList,
   Home,
-  LandingPage
+  LandingPage,
+  PLaylistList
 } from './pages'
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path="/artists" >
             <ArtistList />
+          </Route>
+          <Route exact path="/playlists" >
+            <PLaylistList />
           </Route>
         </Switch>
       </Router>

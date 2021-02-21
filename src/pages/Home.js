@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '../App.css'
 import { 
-  LoginModal,
-  Navbar,
-  RegisterModal 
+  Navbar
 } from '../components';
 import ZoomableBubbleChart from '../components/ZoomableBubbleChart'
 import "../../node_modules/react-bubble-chart/src/style.css";
