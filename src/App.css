@@ -113,8 +113,21 @@ html body {
 
 }
 
+
 .logo {
   -webkit-filter: drop-shadow(3px 3px 3px rgb(30, 30, 34) );
   filter: drop-shadow(3px 3px 3px rgb(30, 30, 34));
   width: 380px;
+
+.chart__bubble {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+.chart__bubble .bubble {
+  fill: transparent;
+}
+
+.chart__bubble .leaf {
+  fill: #45B690;
 }
