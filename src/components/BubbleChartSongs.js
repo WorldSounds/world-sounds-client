@@ -6,6 +6,16 @@ const BubbleChartSongs = ({ data }) => {
     key: 'songs',
     data
   })
+  var colorLegend = [
+    { color: "#3125b1", textColor: "#ffffff"},
+    { color: "#5a51c1", textColor: "#ffffff"},
+    { color: "#5c2d99", textColor: "#ffffff"},
+    { color: "#7d57ad", textColor: "#ffffff"},
+    { color: "#5847b8", textColor: "#ffffff"},
+    { color: "#796cc6", textColor: "#ffffff"},
+    { color: "#b233a7", textColor: "#ffffff"},
+    { color: "#c15cb9", textColor: "#ffffff"}
+  ];
 
   const handleClick = input => {
     console.log(input._id)
@@ -19,6 +29,7 @@ const BubbleChartSongs = ({ data }) => {
         key={songsChart.key}
         data={songsChart.data}
         onClick={handleClick}
+        colorLegend={colorLegend}
       />
     </div>
   )

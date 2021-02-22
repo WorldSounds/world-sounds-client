@@ -8,7 +8,10 @@ export default function BubbleChartParent( { data } ) {
     data,
   })
   const history = useHistory()
-  
+  var colorLegend = [
+    { color: "#45b690", textColor: "#ffffff"}
+  ];
+
   const handleClick = input => {
     const isGroup = input.children !== undefined
 
@@ -26,6 +29,7 @@ export default function BubbleChartParent( { data } ) {
         key={chartState.key}
         data={chartState.data}
         onClick={handleClick}
+        colorLegend={colorLegend}
       />
     </div>
   )
