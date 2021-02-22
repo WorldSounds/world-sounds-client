@@ -23,7 +23,7 @@ const Children = () => {
   if (childrenData.length > 0) {
     return (
       <div className="children" style={{ backgroundColor: 'rgba(14, 18, 66, 1)' }}>
-        <Navbar />
+        <Navbar/>
       <div>
         <button className="btn-success" onClick={handleBack}> go back </button>
       </div>

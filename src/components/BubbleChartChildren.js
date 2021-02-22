@@ -9,6 +9,16 @@ const BubbleChartChildren = ({ data }) => {
   })
   const [getGenre, setGenre] = useState('')
   let check = []
+  var colorLegend = [
+    { color: "#45b690", textColor: "#ffffff"},
+    { color: "#307f65", textColor: "#ffffff"},
+    { color: "#6770be", textColor: "#ffffff"},
+    { color: "#484e85", textColor: "#ffffff"},
+    { color: "#4467be", textColor: "#ffffff"},
+    { color: "#304885", textColor: "#ffffff"},
+    { color: "#433f97", textColor: "#ffffff"},
+    { color: "#2f2c6a", textColor: "#ffffff"}
+  ];
 
 
   const wildcard = () => {
@@ -62,6 +72,7 @@ const BubbleChartChildren = ({ data }) => {
       key={childrenData.key}
       data={childrenData.data}
       onClick={handleClick}
+      colorLegend={colorLegend}
       />
     </div>
   )

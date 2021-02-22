@@ -119,16 +119,19 @@ html body {
   filter: drop-shadow(3px 3px 3px rgb(30, 30, 34));
   width: 380px;
 }
+
 .chart__bubble {
   height: 100%;
   overflow: hidden;
   width: 100%;
-  color: whitesmoke;
-}
-.chart__bubble .bubble {
-  fill: white;
+  color: greenyellow;
+  font-weight:900;
 }
 
-.chart__bubble .leaf {
-  fill: #45B690;
+.chart__bubble .bubble {
+  fill: #463993;
 }
+
+/* .chart__bubble .leaf {
+  fill: linear-gradient(90deg, rgba(67,63,151,1) 0%, rgba(103,112,190,1) 46%, rgba(69,182,144,1) 100%);
+} */
