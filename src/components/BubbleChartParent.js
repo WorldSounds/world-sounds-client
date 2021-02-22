@@ -30,4 +30,3 @@ export default function BubbleChartParent( { data } ) {
     </div>
   )
 }
-
