@@ -9,7 +9,7 @@ const Artists = () => {
   const { genre } = useParams()
   const history = useHistory()
   const dispatch = useDispatch()
-  const { artists } = useSelector(state => state)
+  const { artists } = useSelector(state => state.songsReducer)
 
 
   useEffect(() => {

@@ -12,8 +12,8 @@ const BubbleChartArtists = ({ data }) => {
   const [previewSong, setPreviewSong] = useState('')
   const audioRef = useRef()
   const dispatch = useDispatch()
-  const { bubbleArtists } = useSelector(state => state)
-  const { bubbleChildren } = useSelector(state => state)
+  const { bubbleArtists } = useSelector(state => state.songsReducer)
+
   let colorLegend = [
     { color: "#008891", text: 'least popular', textColor: "#ffffff"},
     { color: "#4dacb2", textColor: "#ffffff"},

@@ -8,7 +8,7 @@ const Songs = () => {
   // const [songsData, setSongsData] = useState([])
   const { genre } = useParams()
   const dispatch = useDispatch()
-  const { songs } = useSelector(state => state)
+  const { songs } = useSelector(state => state.songsReducer)
 
 
   useEffect(() => {

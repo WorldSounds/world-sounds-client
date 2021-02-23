@@ -13,7 +13,7 @@ const ChildrenModal = ({ isOpen, setIsOpen, data}) => {
   const dispatch = useDispatch()
   const [getGenre, setGetGenre] = useState('')
   const [previewSong, setPreviewSong] = useState('')
-  const { bubbleChildren } = useSelector(state => state)
+  const { bubbleChildren } = useSelector(state => state.songsReducer)
   const [isPlaying, setIsPlaying] = useState(false)
 
   useEffect(() => {

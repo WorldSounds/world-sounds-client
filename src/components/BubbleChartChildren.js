@@ -8,7 +8,7 @@ const BubbleChartChildren = ({ data }) => {
     key: 'start children',
     data
   })
-
+ 
   let colorLegend = [
     { color: "#45b690", text: 'least popular', textColor: "#ffffff"},
     { color: "#307f65", textColor: "#ffffff"},
