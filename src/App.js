@@ -39,7 +39,7 @@ function App() {
           <Route exact path="/artists" >
             <ArtistList />
           </Route>
-          <Route path="/artists/:id">
+          <Route exact path="/artist/:id">
             <DetailArtist />
           </Route>
           <Route exact path="/artists/:genre" >

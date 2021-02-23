@@ -122,7 +122,7 @@ export default function Navbar() {
             <ul className="mt-3" style={{ textAlign: 'left' }}>
            {
              searchArtist.map(artist => {
-               let link = `/artists/${artist.id}`
+               let link = `/artist/${artist.id}`
                return <li style={{ listStyle: 'none' }}><a className="" href={link} style={{ textDecoration: 'none', color: "black" }} >{artist.name}</a></li> 
               }) 
             }

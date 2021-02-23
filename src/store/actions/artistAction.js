@@ -1,5 +1,5 @@
 import axios from 'axios'
-const bearerToken = "BQC-SXHmdItHyX4fTg4mSisARauZm1YCw3qcPtrTyw_PZq-UnQPcOM_aH8rT_f3GFYH-iLLcIz5IVnmzy5NqZaIY8Le5OvfBm62TnemYPbn0gQqtx6Cji6KQA27yjmzuhECfLw-kj4Z-6vZmaZaRG-eaTxZiqw6dEkCM-N-_SfQxDbcD1xWBifMjjZI2EXhHBGbVtLgTW-51t0PrOSTL3cbnVykdDdrw777HRrmsnaQZQ5Q8wVNOTr8c2UmRDFTsZWfLfe9MwruldH1yV48SCMOcMrmjBsITGxnUjuxXfNXu"
+const bearerToken = "BQAvhzJpXTRuH-Dr5Hyoy5GjHuR2J8A93eEXD5sFd3VimUpJNkVfAtKJBuFgXg98LMkP90ogJ2UqvBnnKvRxEOfZM9TTloPd5wBaYb0K_HoLWHJzFXZT3KOwqte1PGvimVPh2DvjGtbBOpH1JyD16IwYEsMikPkRDficmLPjkkvfZ0xaAv2mYjff5o5MSI-wwQAZdqlBnG7FCenQQbWLE7eJh5zXijS1rwTkDhcMF_FQA3gQaF2YbCnhvtxmROYAp2oQSrL7c5FFG-P9p7QVSR5Jt7d7I3cIJrj4cm_jTFGp"
 
 export function inputArtist(payload) {
   return function (dispatch) {
@@ -62,7 +62,7 @@ export function getArtist(url) {
         images: data.images[0].url,
         genres: data.genres
       }
-      console.log(newArtist);
+      console.log(newArtist, 'test');
       dispatch(inputArtist(newArtist))
       
     })
