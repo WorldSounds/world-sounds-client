@@ -1,6 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { register, setFormUserRegister } from '../store/actions/userAction'
 
 export default function RegisterModal() {
+
+  const dispatch = useDispatch()
+  const [formUserRegister, setFormUserRegister] = useState({
+    email: '',
+    username: '',
+    password: ''
+  })
+
+  const handleChange = (e) => {
+    const {name, value } = e.target
+    const newUser = {...formUserRegister, [name]: value}
+    setFormUserRegister(newUser)
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const action = dispatch(register(formUserRegister))
+      console.log(action)
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
   return (
       <>
       <div className="modal-dialog">
@@ -11,17 +37,17 @@ export default function RegisterModal() {
         </div>
         <div className="modal-body" style={{fontFamily: 'Roboto' }}>
         {/* Register FORM */}
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-floating mt-2">
-            <input className="form-control" type="text"  name="email" style={{ borderRadius: '10px', borderColor: 'rgba(69, 182, 144, 1)'}}/>
+            <input className="form-control" type="text"  name="email" style={{ borderRadius: '10px', borderColor: 'rgba(69, 182, 144, 1)'}} onChange={handleChange}/>
             <label className="form-label">Email</label>
           </div>
           <div className="form-floating mt-2">
-            <input className="form-control" type="text" name="username" style={{ borderRadius: '10px', borderColor: 'rgba(69, 182, 144, 1)'}}/>
+            <input className="form-control" type="text" name="username" style={{ borderRadius: '10px', borderColor: 'rgba(69, 182, 144, 1)'}} onChange={handleChange}/>
             <label className="form-label">Username</label>
           </div>
           <div className="form-floating mt-2">
-            <input className="form-control" type="password" name="password"  style={{ borderRadius: '10px', borderColor: 'rgba(69, 182, 144, 1)'}}/>
+            <input className="form-control" type="password" name="password"  style={{ borderRadius: '10px', borderColor: 'rgba(69, 182, 144, 1)'}} onChange={handleChange}/>
             <label className="form-label">Password</label>
           </div>
         </form>
