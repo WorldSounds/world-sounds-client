@@ -1,5 +1,5 @@
 import axios from 'axios'
-const spotifyAccessToken = 'BQCTFBd417XpdTiQiSnzJWtS3OqXUA8cgonFRhahMvk0N49C5kHGduDcrMhnt0fUk8vsEmqVHH2rVvejTAwBDbhLOzZeOBl6zWyOBmZq5kurGzauuYUpFXYwyYwZymY8NhZRckegNxTnSWnBCZ3GgO5xPa8fvxwd1ImLx6ivct8mr089piUXCsSzT8HIQxyJMZT8cRF7pPJ5WvOAC0csgHQhlomXxTJKLsRIRna-_lQ9C3mnLp0-yAZiMmcVTTzrJAvj6Db5mrj-ekPqGiNbe01qLQ'
+const spotifyAccessToken = 'BQBTLFy1qKDop-5TMjGuW4xcVbCc3UYlFneouLGAy0cEoTGoZBoC7it3wwLvH70vrjF8O_VwHVA5UMorwD6sn31nyjsCtVlItZuXQPG2EOkxSwhfPAp1btg4pwrQGr1wqUbaUXUT8-1sIi7ODdEGtPviExIu7K3U1S0IkVMl4qhlVcw9rXP2_nRZsP9Za0gJX6pc0F-HIGKp7WuGrLcWQPorKRESkCiSl1ZnJdee_cc4RKmij2m9zestSWc-2AXWXTexTRVHZ75w5sPaSuq6IxFjTA'
 const baseURL = 'https://api.spotify.com/v1'
 const random_wildcards = [
   '%25a%25',
@@ -130,7 +130,7 @@ export const fetchSongs = genre => {
             Authorization: `Bearer ${spotifyAccessToken}` 
           },
           method: 'GET',
-          url: `${baseURL}/search?q=${randomize}%20genre:%22${encodeURIComponent(genre)}%22&type=track&offset=10`
+          url: `${baseURL}/search?q=${randomize}%20genre:%22${encodeURIComponent(genre)}%22&type=track&offset=10&market=US`
         })
         songs.data.tracks.items.map(track => {
           songsDataHolder.push({
@@ -168,7 +168,7 @@ export const fetchArtists = genre => {
             Authorization: `Bearer ${spotifyAccessToken}` 
           },
           method: 'GET',
-          url: `${baseURL}/search?q=${randomize}%20genre:%22${encodeURIComponent(genre)}%22&type=artist&offset=10`
+          url: `${baseURL}/search?q=${randomize}%20genre:%22${encodeURIComponent(genre)}%22&type=artist&offset=10&market=US`
         })
         artists.data.artists.items?.map(artist => {
           artistsDataHolder.push({
@@ -205,7 +205,7 @@ export const fetchBubbleChildren = genre => {
             Authorization: `Bearer ${spotifyAccessToken}` 
           },
           method: 'GET',
-          url: `${baseURL}/search?q=${randomize}%20genre:%22${encodeURIComponent(genre)}%22&type=track&offset=10`
+          url: `${baseURL}/search?q=${randomize}%20genre:%22${encodeURIComponent(genre)}%22&type=track&offset=10&market=US`
         })
         bubbleChildren.data.tracks.items.map(track => {
           genreDataHolder.push({

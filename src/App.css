@@ -121,7 +121,7 @@ html body {
 }
 
 .chart__bubble {
-  height: 200vh;  
+  height: 150vh;  
   overflow: hidden;
   width: auto;
   color: greenyellow;
@@ -129,11 +129,11 @@ html body {
 }
 
 .chart__bubble .bubble {
-  fill: #463993;
+  fill: transparent;
 }
 
 /* .chart__bubble .leaf {
-  fill: linear-gradient(90deg, rgba(67,63,151,1) 0%, rgba(103,112,190,1) 46%, rgba(69,182,144,1) 100%);
+  fill: #463993;
 } */
 
 /* .chart__bubble .bubble-chart-d3 {
@@ -142,8 +142,9 @@ html body {
   padding: auto;
   width: 100vw;
   height: 100vh;
-}
-*/
-.chart__bubble .bubble-legend {
+} */
+
+.bubble-chart-container .chart__bubble .bubble-legend .legend-key {
   height: 0em;
+  color: white;
 }
