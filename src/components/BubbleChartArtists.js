@@ -13,7 +13,7 @@ const BubbleChartArtists = ({ data }) => {
   const audioRef = useRef()
   const dispatch = useDispatch()
   const { bubbleArtists } = useSelector(state => state)
-  const { bubbleChildren } = useSelector(state => state)
+
   let colorLegend = [
     { color: "#008891", text: 'least popular', textColor: "#ffffff"},
     { color: "#4dacb2", textColor: "#ffffff"},

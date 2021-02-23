@@ -12,13 +12,13 @@ import genres from '../Assets/JSON/chartData.json'
 import { useHistory } from 'react-router-dom'
 
 export default function Home() {
-  const [parentGenre, setParentGenre] = useState([])
+  // const [parentGenre, setParentGenre] = useState([])
 
-  useEffect(() => {
-    genres.map(family => {
-      family.children.map(child => child._id = '')
-    })
-  }, [genres])
+  // useEffect(() => {
+  //   genres.map(family => {
+  //     family.children.map(child => child._id = '')
+  //   })
+  // }, [genres])
 
   return(
     <div className="home">
