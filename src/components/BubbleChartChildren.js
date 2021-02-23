@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactBubbleChart from 'react-bubble-chart'
-import { useSelector, useDispatch } from 'react-redux'
-import { fetchBubbleChildren } from '../store/actions/songsAction'
+import ChildrenModal from './ChildrenModal'
 
 const BubbleChartChildren = ({ data }) => {
   
@@ -9,48 +8,31 @@ const BubbleChartChildren = ({ data }) => {
     key: 'start children',
     data
   })
-  const [getGenre, setGenre] = useState('')
-  const { bubbleChildren } = useSelector(state => state)
-  const [previewSong, setPreviewSong] = useState('')
-  const audioRef = useRef()
-  const dispatch = useDispatch()
+
   let colorLegend = [
-    { color: "#45b690", textColor: "#ffffff"},
+    { color: "#45b690", text: 'least popular', textColor: "#ffffff"},
     { color: "#307f65", textColor: "#ffffff"},
     { color: "#6770be", textColor: "#ffffff"},
     { color: "#484e85", textColor: "#ffffff"},
     { color: "#4467be", textColor: "#ffffff"},
     { color: "#304885", textColor: "#ffffff"},
     { color: "#433f97", textColor: "#ffffff"},
-    { color: "#2f2c6a", textColor: "#ffffff"}
+    { color: "#2f2c6a", text: 'most popular', textColor: "#ffffff"}
   ]
+
+  const [isOpen, setIsOpen] = useState(false)
+  const [childData, setChildData] = useState({})
   
   const handleClick = (input) => {
-    setPreviewSong('')
-    setGenre(input._id)
+    setChildData({
+      _id: input._id
+    })
+    setIsOpen(true)
   }
-
-  useEffect(() => {
-    if (getGenre) {
-      dispatch(fetchBubbleChildren(getGenre))
-    }
-  }, [getGenre])
-
-  useEffect(() => {
-    if (bubbleChildren.data.length > 0) {
-      setPreviewSong(bubbleChildren.data[0].preview_url)
-    }
-  }, [bubbleChildren])
-
-  useEffect(() => {
-    if (previewSong) {
-      audioRef.current.play()
-    }
-  }, [previewSong])
-
+  
   return (
     <div>
-      { previewSong ? <audio ref={audioRef} src={previewSong} /> : '' }
+      { isOpen ? <ChildrenModal setIsOpen={setIsOpen} isOpen={isOpen} data={childData}/> : ''}
       <ReactBubbleChart 
       {...data}
       className="chart__bubble"
@@ -58,6 +40,10 @@ const BubbleChartChildren = ({ data }) => {
       data={childrenData.data}
       onClick={handleClick}
       colorLegend={colorLegend}
+      selectedColor="#737373"
+      fixedDomain={{min: 20, max: 100}}
+      legend={true}
+      legendSpacing={10}
       />
     </div>
   )
