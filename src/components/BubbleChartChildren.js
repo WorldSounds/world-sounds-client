@@ -29,7 +29,7 @@ const BubbleChartChildren = ({ data }) => {
     })
     setIsOpen(true)
   }
-  // console.log(document.getElementByClassName('legend-key'));
+  
   return (
     <div>
       { isOpen ? <ChildrenModal setIsOpen={setIsOpen} isOpen={isOpen} data={childData}/> : ''}

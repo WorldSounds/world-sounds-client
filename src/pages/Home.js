@@ -11,17 +11,13 @@ import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 export default function Home() {
-  // const { user } = useSelector(state => state.userReducer)
-  
+  const [parentGenre, setParentGenre] = useState([])
 
-  // const [parentGenre, setParentGenre] = useState([])
-
-  // useEffect(() => {
-  //   genres.map(family => {
-  //     family.children.map(child => child._id = '')
-  //   })
-  // }, [genres])
-
+  useEffect(() => {
+    genres.map(family => {
+      family.children.map(child => child._id = '')
+    })
+  }, [genres])
 
   return(
     <div className="home">

@@ -151,6 +151,7 @@ html body {
 
 .chart__bubble .bubble {
   fill: transparent;
+<<<<<<< HEAD
 }
 
 /* .chart__bubble .leaf {
@@ -172,4 +173,23 @@ html body {
 
 .legend-key text {
   color: white !important
+=======
+}
+
+/* .chart__bubble .leaf {
+  fill: #463993;
+} */
+
+/* .chart__bubble .bubble-chart-d3 {
+  align-self: center;
+  margin: auto;
+  padding: auto;
+  width: 100vw;
+  height: 100vh;
+} */
+
+.bubble-chart-container .chart__bubble .bubble-legend .legend-key {
+  height: 0em;
+  color: white;
+>>>>>>> d34b18d3b86b2f420751930e845b19fb76e49bdf
 }
