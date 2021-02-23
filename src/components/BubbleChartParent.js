@@ -22,7 +22,7 @@ export default function BubbleChartParent( { data } ) {
   }
 
   return (
-    <div style={{ width: "", height: "300vh" }}>
+    <div>
       <ReactBubbleChart
         {...data}
         className="chart__bubble"

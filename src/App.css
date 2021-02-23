@@ -121,9 +121,9 @@ html body {
 }
 
 .chart__bubble {
-  height: 100%;
+  height: 200vh;  
   overflow: hidden;
-  width: 100%;
+  width: auto;
   color: greenyellow;
   font-weight:900;
 }
@@ -135,3 +135,15 @@ html body {
 /* .chart__bubble .leaf {
   fill: linear-gradient(90deg, rgba(67,63,151,1) 0%, rgba(103,112,190,1) 46%, rgba(69,182,144,1) 100%);
 } */
+
+/* .chart__bubble .bubble-chart-d3 {
+  align-self: center;
+  margin: auto;
+  padding: auto;
+  width: 100vw;
+  height: 100vh;
+}
+*/
+.chart__bubble .bubble-legend {
+  height: 0em;
+}
