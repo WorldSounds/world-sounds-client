@@ -11,6 +11,11 @@ export default function RegisterModal() {
     password: ''
   })
 
+  function handleLoginSpotify(e){
+    e.preventDefault()
+    window.location.replace('http://localhost:6300/loginSpotify')
+  }
+
   const handleChange = (e) => {
     const {name, value } = e.target
     const newUser = {...formUserRegister, [name]: value}
@@ -20,8 +25,8 @@ export default function RegisterModal() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const action = dispatch(register(formUserRegister))
-      console.log(action)
+      dispatch(register(formUserRegister))
+      // console.log(action)
     }
     catch(err){
       console.log(err)
@@ -37,7 +42,7 @@ export default function RegisterModal() {
         </div>
         <div className="modal-body" style={{fontFamily: 'Roboto' }}>
         {/* Register FORM */}
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="form-floating mt-2">
             <input className="form-control" type="text"  name="email" style={{ borderRadius: '10px', borderColor: 'rgba(69, 182, 144, 1)'}} onChange={handleChange}/>
             <label className="form-label">Email</label>
@@ -54,10 +59,10 @@ export default function RegisterModal() {
         </div>
         <div className="d-flex row">
          <div>
-          <button type="button" className="btn btn-primary" style={{ borderRadius: '20px', width: '300px', backgroundColor: 'rgba(14, 18, 66, 1)', border: 'none'  }}>Register</button><br></br>
+          <button type="button" className="btn btn-primary" data-bs-dismiss="modal" style={{ borderRadius: '20px', width: '300px', backgroundColor: '#303960', border: 'none'  }} onClick={handleSubmit}>Register</button><br></br>
          </div>
          <div className="mt-2">
-          <button type="button" className="btn btn-primary" style={{ borderRadius: '20px', width: '300px', backgroundColor: 'rgba(69, 182, 144, 1)', border: 'none', color: 'black'  }}><img src="spotify.svg" alt="spotify icon" style={{ width: '25px' }} /> Continue with Spotify</button><br></br>
+          <button type="button" className="btn btn-primary" style={{ borderRadius: '20px', width: '300px', backgroundColor: 'rgba(69, 182, 144, 1)', border: 'none', color: 'black' }}  onClick={handleLoginSpotify}><img src="spotify.svg" alt="spotify icon" style={{ width: '25px' }} /> Continue with Spotify</button><br></br>
          </div>
          <div className="mt-2">
           <p>have an account? <a href=""  data-bs-dismiss="modal" aria-label="Close" data-bs-toggle="modal" data-bs-target="#loginModal" >Login</a></p>

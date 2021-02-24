@@ -4,12 +4,14 @@ import artistReducer from './reducers/artistReducer'
 import userReducer from './reducers/userReducer'
 import playlistReducers from './reducers/playlistReducer'
 import songsReducer from './reducers/songsReducer'
+import { favoriteReducer } from './reducers/favoriteReducer'
 
 const reducers = combineReducers({
   userReducer,
   playlistReducers,
   artistReducer,
-  songsReducer
+  songsReducer,
+  favoriteReducer
 })
 const store = createStore(reducers, applyMiddleware(thunk))
 

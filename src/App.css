@@ -151,7 +151,6 @@ html body {
 
 .chart__bubble .bubble {
   fill: transparent;
-<<<<<<< HEAD
 }
 
 /* .chart__bubble .leaf {
@@ -173,23 +172,44 @@ html body {
 
 .legend-key text {
   color: white !important
-=======
 }
-
-/* .chart__bubble .leaf {
-  fill: #463993;
-} */
-
-/* .chart__bubble .bubble-chart-d3 {
-  align-self: center;
-  margin: auto;
-  padding: auto;
-  width: 100vw;
-  height: 100vh;
-} */
 
 .bubble-chart-container .chart__bubble .bubble-legend .legend-key {
   height: 0em;
   color: white;
->>>>>>> d34b18d3b86b2f420751930e845b19fb76e49bdf
+}
+
+.pagination {
+  font-size: medium;
+  color: white;
+  margin-top: 10px;
+  
+}
+
+.pagination li a {
+  margin: 15px;
+  font-size: large;
+  font-family: 'Roboto';
+  z-index: 1;
+}
+
+.pagination li:hover {
+  background-color: white;
+  color: rgba(69, 182, 144, 1);
+  padding: 4px;
+  border-radius: 40px;
+}
+
+.pagination li a:focus {
+  outline: 0;
+  border: 0;
+}
+
+.action-button {
+  transition-property: margin-left 2s;
+  transition-duration: 2s;
+}
+
+.action-button .button:hover {
+  transform: scale(1.5); 
 }

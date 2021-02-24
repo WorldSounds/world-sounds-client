@@ -2,7 +2,6 @@ const initialState = {
   accessToken: null,
   refreshToken: null,
   userSpotify: {
-    loading: false,
     country: null,
     display_name: null,
     email: null,
@@ -16,20 +15,22 @@ const initialState = {
     uri: null,
   },
   user: {
-    validator: '',
-    password: ''
+    id: 0,
+    email: '',
+    username: ''
   },
-  isLogin: false
+  isLogin: false,
+  loading: false
 }
 
 const userReducers = (state=initialState, action) => {
   switch(action.type){
     case 'GET_USER_SPOTIFY':
-      console.log(action.payload);
-      return {...state, [state.userSpotify]: action.payload }
+      console.log(action.payload, 'cari spotiyf');
+      return {...state, userSpotify: action.payload }
     case 'LOGIN_USER':
-      console.log(action.payload, 'dari reducers');
-      return {...state, user: {validator: action.payload.validator, password: action.payload.password}}
+      // console.log(action.payload, 'dari reducers');
+      return {...state, user: action.payload}
     case 'LOGIN_STATUS':
       return {...state, isLogin: action.payload }
     default: 

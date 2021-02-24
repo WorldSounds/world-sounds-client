@@ -1,10 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+import '../App.css'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchBubbleChildren } from '../store/actions/songsAction'
+import {addFavorite} from '../store/actions/favoriteAction'
 
 
 const ChildrenModal = ({ isOpen, setIsOpen, data}) => {
@@ -55,7 +57,8 @@ const ChildrenModal = ({ isOpen, setIsOpen, data}) => {
   }
 
   const handleClickFavorite = () => {
-    console.log(`favorite`)
+    console.log(data._id, '<<<< modal')
+    dispatch(addFavorite(data._id))
   }
 
   const handleHide = () => {
@@ -70,31 +73,37 @@ const ChildrenModal = ({ isOpen, setIsOpen, data}) => {
   return (
     <>
       { previewSong ? <audio ref={audioRef} src={previewSong} /> : '' }
-      <Modal show={isOpen} onHide={handleHide}>
-      <Modal.Header closeButton>
-        <Modal.Title>{data._id}</Modal.Title>
+      <Modal show={isOpen} onHide={handleHide} >
+      <Modal.Header style={{ backgroundColor: 'rgba(69, 182, 144, 1)' }} >
+        <Modal.Title style={{ color: 'white', fontWeight: 'bold', fontSize: '30px', fontFamily: 'Roboto' }}>{data._id}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <Container>
-        <div>
+      <Modal.Body  >
+        <div className="d-flex col justify-content-around">
+      
           <label></label>
           { isPlaying 
-            ? <Button variant="danger" onClick={handleClickPause}>Pause</Button>
-            : <Button variant="success" onClick={handleClickPlay}>Play</Button> }
-        </div>
-        <div>
+            ? <div className=" action-button mt-1">
+              <button className="button" onClick={handleClickPause} href="" style={{ color: 'white', backgroundColor: 'rgba(69, 182, 144, 1)', fontFamily: 'Roboto', borderRadius: '100%', width: '80px', height: '80px', border: 'white', fontSize: '40px', marginLeft: '-30px' }} ><i className="bi-pause-fill"></i></button>
+            </div>
+            
+            : <div className="action-button mt-1" >
+                <button className="button" onClick={handleClickPlay} href="" style={{ color: 'white', backgroundColor: 'rgba(69, 182, 144, 1)', fontFamily: 'Roboto', borderRadius: '100%', width: '80px', height: '80px', border: 'white', fontSize: '40px', marginLeft: '-30px'  }} ><i className="bi-play-fill"></i></button>
+            </div>
+           }
+       
+        <div className="action-button mt-1" data-aos="slide-left" data-aos-delay="200">
           <label></label>
-          <Button onClick={handleClickArtists}>Artists</Button>
+          <Button className="button" onClick={handleClickArtists} style={{ color: 'white', backgroundColor: '#303960', fontFamily: 'Roboto', marginLeft: '6px', borderRadius: '100%', width: '80px', height: '80px', border: 'white' }}>Artists</Button>
         </div>
-        <div>
+        <div className="action-button mt-1" data-aos="slide-left" data-aos-delay="400">
           <label></label>
-          <Button onClick={handleClickSongs}>Songs</Button>
+          <Button className="button" onClick={handleClickSongs} style={{ color: 'white', backgroundColor: '#303960', fontFamily: 'Roboto', marginLeft: '6px', borderRadius: '100%', width: '80px', height: '80px', border: 'white' }}>Songs</Button>
         </div>
-        <div>
+        <div className="action-button mt-1" data-aos="slide-left" data-aos-delay="600">
           <label></label>
-          <Button onClick={handleClickFavorite}>Favorite</Button>
+          <Button className="button" onClick={handleClickFavorite} style={{ color: 'white', backgroundColor: '#aa2b1d', fontFamily: 'Roboto', marginLeft: '6px', borderRadius: '100%', width: '80px', height: '80px', border: 'white', fontSize: '25px' }}><i className="bi-heart-fill"></i></Button>
         </div>
-        </Container>
+        </div>
       </Modal.Body>
       </Modal>
     </>

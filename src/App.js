@@ -15,11 +15,17 @@ import {
   DetailArtist,
   ProfilePage
 } from './pages'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { setLoginStatus } from './store/actions/userAction'
 
 function App() {
+  const dispatch = useDispatch()
   const { isLogin } = useSelector(state => state.userReducer)
 
+  // useEffect(() => {
+  //   if (localStorage.access_token) dispatch(setLoginStatus(true))
+  // }, [localStorage.access_token])
   return (
     <div className="App">
       <Router>
@@ -30,11 +36,11 @@ function App() {
           <Route path="/home" >
             <Home />
           </Route>
-          <Route path="/user/:access_token/:refresh_token" >
-            <ProfilePage />
+          <Route path="/dashboard/:access_token/:refresh_token" >
+            <Home />
           </Route>
           <Route exact path="/profile" >
-           { isLogin ? <ProfilePage />: <Redirect to="/home" />}
+           { (localStorage.access_token_local || localStorage.access_token ) ? <ProfilePage /> : <Redirect to="/home" />}
           </Route>
           <Route exact path="/artists" >
             <ArtistList />

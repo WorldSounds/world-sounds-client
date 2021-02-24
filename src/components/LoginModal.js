@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { setUser, setUserData } from '../store/actions/userAction'
+import { useDispatch, useSelector } from 'react-redux'
+import { setUserData, getDataUser} from '../store/actions/userAction'
 
 export default function LoginModal() {
   const dispatch = useDispatch()
@@ -17,6 +17,7 @@ export default function LoginModal() {
     e.preventDefault()
     window.location.replace('http://localhost:6300/loginSpotify')
   }
+  
   function handleChange (e) {
     const {name, value} = e.target
     const user = { ...formUser, [name]: value }
@@ -26,6 +27,7 @@ export default function LoginModal() {
     e.preventDefault()
     console.log(formUser);
     dispatch(setUserData(formUser))
+    dispatch(getDataUser())
   }
 
   return (
@@ -51,7 +53,7 @@ export default function LoginModal() {
         </div>
         <div className="d-flex row">
          <div>
-          <button type="button" className="btn btn-primary" data-bs-dismiss="modal" style={{ borderRadius: '20px', width: '300px', backgroundColor: 'rgba(14, 18, 66, 1)', border: 'none'  }} onClick={handleSubmit}>Login</button><br></br>
+          <button type="button" className="btn btn-primary" data-bs-dismiss="modal" style={{ borderRadius: '20px', width: '300px', backgroundColor: '#303960', border: 'none'  }} onClick={handleSubmit}>Login</button><br></br>
          </div>
          <div className="mt-2">
           <button type="button" className="btn btn-primary" data-bs-dismiss="modal" style={{ borderRadius: '20px', width: '300px', backgroundColor: 'rgba(69, 182, 144, 1)', border: 'none', color: 'black'  }} onClick={handleLoginSpotify} ><img src="spotify.svg" alt="spotify icon" style={{ width: '25px' }} /> Continue with Spotify</button><br></br>

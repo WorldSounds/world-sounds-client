@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import '../App.css'
-import axios from 'axios'
 import {
   LoginModal,
   RegisterModal,
@@ -57,6 +56,7 @@ export default function Navbar() {
     function handleLogout(e) {
       e.preventDefault()
       localStorage.removeItem('access_token')
+      localStorage.removeItem('access_token_local')
       dispatch(setLoginStatus(false))
     }
 
@@ -64,7 +64,7 @@ export default function Navbar() {
     <>
       <nav className="App-navbar d-flex justify-content-between fixed-top shadow" style={{ backgroundColor: '#303960', color: 'white', fontFamily: 'Exo' }} >
         {/* LOGO */}
-        <div>
+        <div className="mt-2">
           <Link to="/home"><img src="WS logo.png" alt="worldsounds" style={{ width: '80px', marginLeft: '15px' }} /></Link>
         </div>
         {/* NAVIGATION HOME ARTISTS PLAYLISTS */}
@@ -76,16 +76,20 @@ export default function Navbar() {
             <li className="nav-item mt-2">
               <Link className="nav-link" to="/artists" style={{ marginRight: '10px' }}>Artists</Link>
             </li>
+            {
+              (localStorage.access_token_local || localStorage.access_token)
+              &&
             <li className="nav-item mt-2" >
               <Link className="nav-link" to="/profile" style={{ marginRight: '10px' }}>profile</Link>
             </li>
+            }
           </ul>
         </div>
         {/* NAVIGATION LOGIN REGISTER SEARCH */}
-        <div className="login">
+        <div className="login mt-2">
           <ul className="col d-flex ">
           {
-            (localStorage.access_token)
+            (localStorage.access_token_local || localStorage.access_token)
             ?
             <li  className="mt-2" style={{ marginRight: '10px', textDecoration: 'none' }}>
               <a href=""  onClick={handleLogout}>Logout</a>
