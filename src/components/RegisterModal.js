@@ -1,6 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { register, setFormUserRegister } from '../store/actions/userAction'
+import spotify from '../assets/spotify.svg'
 
 export default function RegisterModal() {
+
+  const dispatch = useDispatch()
+  const [formUserRegister, setFormUserRegister] = useState({
+    email: '',
+    username: '',
+    password: ''
+  })
+
+  const handleChange = (e) => {
+    const {name, value } = e.target
+    const newUser = {...formUserRegister, [name]: value}
+    setFormUserRegister(newUser)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch(register(formUserRegister))
+  }
+
+  function handleLoginSpotify(e){
+    e.preventDefault()
+    window.location.replace('http://localhost:6300/loginSpotify')
+  }
+
   return (
       <>
       <div className="modal-dialog">
@@ -11,30 +38,30 @@ export default function RegisterModal() {
         </div>
         <div className="modal-body" style={{fontFamily: 'Roboto' }}>
         {/* Register FORM */}
-        <form>
-          <div className="d-flex col">
-            <label style={{ marginRight: '35px' }}>Email</label>
-            <input className="form-control" type="text"  name="email" style={{ borderRadius: '20px', borderColor: 'rgba(69, 182, 144, 1)'}}/><br></br>
+        <form onSubmit={handleSubmit}>
+          <div className="form-floating mt-2">
+            <input className="form-control" type="text"  name="email" style={{ borderRadius: '10px', borderColor: 'rgba(69, 182, 144, 1)'}} onChange={handleChange}/>
+            <label className="form-label">Email</label>
           </div>
-          <div className="d-flex col mt-2">
-            <label style={{ marginRight: '5px'}} >Username</label>
-            <input className="form-control" type="password" name="password" style={{ borderRadius: '20px', borderColor: 'rgba(69, 182, 144, 1)'}}/>
+          <div className="form-floating mt-2">
+            <input className="form-control" type="text" name="username" style={{ borderRadius: '10px', borderColor: 'rgba(69, 182, 144, 1)'}} onChange={handleChange}/>
+            <label className="form-label">Username</label>
           </div>
-          <div className="d-flex col mt-2">
-            <label style={{ marginRight: '5px'}} >Password</label>
-            <input className="form-control" type="password" name="password" style={{ borderRadius: '20px', borderColor: 'rgba(69, 182, 144, 1)'}}/>
+          <div className="form-floating mt-2">
+            <input className="form-control" type="password" name="password"  style={{ borderRadius: '10px', borderColor: 'rgba(69, 182, 144, 1)'}} onChange={handleChange}/>
+            <label className="form-label">Password</label>
           </div>
         </form>
         </div>
         <div className="d-flex row">
          <div>
-          <button type="button" className="btn btn-primary" style={{ borderRadius: '20px', width: '300px' }}>Login</button><br></br>
-         </div>
-         <div className="mt-1">
-          <button type="button" className="btn btn-primary" style={{ borderRadius: '20px', width: '300px', backgroundColor: 'rgba(69, 182, 144, 1)', border: 'none', color: 'black'  }}><img src="spotify.svg" alt="spotify icon" style={{ width: '25px' }} /> Continue with Spotify</button><br></br>
+          <button type="button" className="btn btn-primary" data-bs-dismiss="modal" style={{ borderRadius: '20px', width: '300px', backgroundColor: '#303960', border: 'none'  }} onClick={handleSubmit}>Register</button><br></br>
          </div>
          <div className="mt-2">
-          <p>have an account? <a href=""  data-bs-dismiss="modal" aria-label="Close" data-bs-toggle="modal" data-bs-target="#loginModal" >Logn</a></p>
+          <button type="button" className="btn btn-primary" style={{ borderRadius: '20px', width: '300px', backgroundColor: 'rgba(69, 182, 144, 1)', border: 'none', color: 'black' }}  onClick={handleLoginSpotify}><img src={spotify} alt="spotify icon" style={{ width: '25px' }} /> Continue with Spotify</button><br></br>
+         </div>
+         <div className="mt-2">
+          <p>have an account? <a href="#"  data-bs-dismiss="modal" aria-label="Close" data-bs-toggle="modal" data-bs-target="#loginModal" >Login</a></p>
          </div>
         </div>
       </div>
