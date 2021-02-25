@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
-import { BubbleChartArtists, Navbar } from '../components'
+import { BubbleChartArtists, Navbar, Loading, Errors } from '../components'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchArtists } from '../store/actions/songsAction'
+import '../App.css'
 
 const Artists = () => {
-  // const [artistsData, setArtistsData] = useState([])
   const { genre } = useParams()
   const history = useHistory()
   const dispatch = useDispatch()
-  const { artists } = useSelector(state => state)
+  const { artists } = useSelector(state => state.songsReducer)
 
 
   useEffect(() => {
@@ -18,15 +18,21 @@ const Artists = () => {
 
   if (artists.loading) {
     return (
-      <h1>loading...</h1>
+      <div>
+        <Navbar/>
+        <Loading/>
+      </div>
     )
   } else if (artists.error) {
     return (
-      <h1>{artists.error}</h1>
+      <div>
+        <Navbar/>
+        <Errors/>
+      </div>
     )
   } else {
     return (
-      <div className="artists" style={{ backgroundColor: 'rgba(14, 18, 66, 1)' }}>
+      <div style={{ marginTop: "10vh" }}>
         <Navbar />
         <div>
           <div className="">

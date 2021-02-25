@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import genres from '../Assets/JSON/chartData.json'
+import genres from '../assets/JSON/chartData.json'
 import { useHistory, useParams } from 'react-router-dom'
-import { BubbleChartChildren, Navbar } from '../components'
+import { BubbleChartChildren, Navbar, Loading } from '../components'
+import '../App.css'
 
 const Children = () => {
   const { children } = useParams()
@@ -19,16 +20,17 @@ const Children = () => {
   const handleBack = () => {
     history.goBack()
   }
+  
 
   if (childrenData.length > 0) {
     return (
-      <div className="children" style={{ backgroundColor: 'rgba(14, 18, 66, 1)' }}>
+      <div className="children">
         <Navbar/>
       <div>
         <button className="btn-success" onClick={handleBack}> go back </button>
       </div>
         <div>
-          <div className="circle">
+          <div style={{ marginTop: "5vh" }}>
             <BubbleChartChildren data={childrenData}/>
           </div>
         </div>
@@ -36,7 +38,10 @@ const Children = () => {
     )
   } else {
     return (
-      <h1>loading...</h1>
+      <div>
+        <Navbar/>
+        <Loading/>
+      </div>
     )
   }
 }

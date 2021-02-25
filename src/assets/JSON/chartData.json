@@ -1,6 +1,7 @@
 [
   {
     "_id": "pop",
+    "value": 92,
     "children": [
       {
         "_id": "dance pop",
@@ -1022,6 +1023,7 @@
   },
   {
     "_id": "electro house",
+    "value": 62,
     "children": [
       {
         "_id": "dance pop",
@@ -1838,6 +1840,7 @@
   },
   {
     "_id": "rock",
+    "value": 63,
     "children": [
       {
         "_id": "pop rock",
@@ -2860,10 +2863,11 @@
         "colorValue": 20
       }
     ],
-    "colorValue": 90
+    "colorValue": 92
   },
   {
     "_id": "hip hop",
+    "value": 71,
     "children": [
       {
         "_id": "hip hop",
@@ -3191,10 +3195,11 @@
         "colorValue": 20
       }
     ],
-    "colorValue": 90
+    "colorValue": 71
   },
   {
     "_id": "r&b",
+    "value": 61,
     "children": [
       {
         "_id": "r&b",
@@ -3472,10 +3477,11 @@
         "colorValue": 20
       }
     ],
-    "colorValue": 90
+    "colorValue": 61
   },
   {
     "_id": "latin",
+    "value": 59,
     "children": [
       {
         "_id": "latin",
@@ -3663,10 +3669,11 @@
         "colorValue": 20
       }
     ],
-    "colorValue": 90
+    "colorValue": 59
   },
   {
     "_id": "folk",
+    "value": 36,
     "children": [
       {
         "_id": "mellow gold",
@@ -3944,10 +3951,11 @@
         "colorValue": 20
       }
     ],
-    "colorValue": 90
+    "colorValue": 36
   },
   {
     "_id": "country",
+    "value": 47,
     "children": [
       {
         "_id": "contemporary country",
@@ -4050,10 +4058,11 @@
         "colorValue": 20
       }
     ],
-    "colorValue": 90
+    "colorValue": 47
   },
   {
     "_id": "metal",
+    "value": 34,
     "children": [
       {
         "_id": "funk metal",
@@ -4506,10 +4515,11 @@
         "colorValue": 20
       }
     ],
-    "colorValue": 90
+    "colorValue": 34
   },
   {
     "_id": "punk",
+    "value": 33,
     "children": [
       {
         "_id": "dance-punk",
@@ -4882,10 +4892,11 @@
         "colorValue": 20
       }
     ],
-    "colorValue": 90
+    "colorValue": 33
   },
   {
     "_id": "blues",
+    "value": 25,
     "children": [
       {
         "_id": "blues-rock",
@@ -5038,10 +5049,11 @@
         "colorValue": 20
       }
     ],
-    "colorValue": 90
+    "colorValue": 25
   },
   {
     "_id": "reggae",
+    "value": 35,
     "children": [
       {
         "_id": "reggaeton",
@@ -5149,10 +5161,11 @@
         "colorValue": 20
       }
     ],
-    "colorValue": 90
+    "colorValue": 35
   },
   {
     "_id": "world",
+    "value": 24,
     "children": [
       {
         "_id": "a cappella",
@@ -6050,10 +6063,11 @@
         "colorValue": 20
       }
     ],
-    "colorValue": 90
+    "colorValue": 24
   },
   {
     "_id": "jazz",
+    "value": 27,
     "children": [
       {
         "_id": "easy listening",
@@ -6406,10 +6420,11 @@
         "colorValue": 20
       }
     ],
-    "colorValue": 90
+    "colorValue": 27
   },
   {
     "_id": "classical",
+    "value": 28,
     "children": [
       {
         "_id": "classical",
@@ -6597,6 +6612,6 @@
         "colorValue": 20
       }
     ],
-    "colorValue": 90
+    "colorValue": 28
   }
 ]

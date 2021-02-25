@@ -1,12 +1,18 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
-import songsReducer from './reducers/songsReducer'
 import thunk from 'redux-thunk'
+import artistReducer from './reducers/artistReducer'
+import userReducer from './reducers/userReducer'
+import favoriteReducer from './reducers/songsReducer'
+import songsReducer from './reducers/songsReducer'
 
-// const rootReducer = combineReducers({
-//   songs: songsReducer,
-//   favorites: favoritesReducer
-// })
+const reducers = combineReducers({
+  userReducer,
+  songsReducer,
+  favoriteReducer,
+  artistReducer,
+  songsReducer
+})
+const store = createStore(reducers, applyMiddleware(thunk))
 
-const store = createStore(songsReducer, applyMiddleware(thunk))
 
 export default store

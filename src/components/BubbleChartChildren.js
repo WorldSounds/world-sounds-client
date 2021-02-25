@@ -8,16 +8,16 @@ const BubbleChartChildren = ({ data }) => {
     key: 'start children',
     data
   })
-
+ 
   let colorLegend = [
-    { color: "#45b690", text: 'least popular', textColor: "#ffffff"},
+    { color: "#45b690", textColor: "#ffffff"},
     { color: "#307f65", textColor: "#ffffff"},
     { color: "#6770be", textColor: "#ffffff"},
     { color: "#484e85", textColor: "#ffffff"},
     { color: "#4467be", textColor: "#ffffff"},
     { color: "#304885", textColor: "#ffffff"},
     { color: "#433f97", textColor: "#ffffff"},
-    { color: "#2f2c6a", text: 'most popular', textColor: "#ffffff"}
+    { color: "#2f2c6a", textColor: "#ffffff"}
   ]
 
   const [isOpen, setIsOpen] = useState(false)
@@ -29,10 +29,19 @@ const BubbleChartChildren = ({ data }) => {
     })
     setIsOpen(true)
   }
-  
+
   return (
-    <div>
-      { isOpen ? <ChildrenModal setIsOpen={setIsOpen} isOpen={isOpen} data={childData}/> : ''}
+    <div className="d-flex">
+      <div className="d-flex flex-column" style={{marginTop: "66vh", marginLeft: "3vh"}}>
+        <span className="fw-lighter" style={{ fontSize: "0.7em", color: "#e2e2e1", whiteSpace: "nowrap"}}>
+          most popular
+        </span>
+        <span className="fw-lighter" style={{ marginTop: "14.5vh", fontSize: "0.7em", color: "#e2e2e1", whiteSpace: "nowrap"}}>
+          least popular
+        </span>
+      </div>
+    <div className="container-fluid" style={{ marginLeft: "-6vh"}}>
+    { isOpen ? <ChildrenModal setIsOpen={setIsOpen} isOpen={isOpen} data={childData}/> : ''}
       <ReactBubbleChart 
       {...data}
       className="chart__bubble"
@@ -40,11 +49,10 @@ const BubbleChartChildren = ({ data }) => {
       data={childrenData.data}
       onClick={handleClick}
       colorLegend={colorLegend}
-      selectedColor="#737373"
-      fixedDomain={{min: 20, max: 100}}
       legend={true}
-      legendSpacing={10}
+      fontSizeFactor={0.3}
       />
+    </div>
     </div>
   )
 }

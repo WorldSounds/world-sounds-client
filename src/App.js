@@ -2,22 +2,35 @@ import './App.css';
 import { 
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from 'react-router-dom'
 import {
   ArtistList,
   Home,
   LandingPage,
   Children,
-  PLaylistList,
   Artists,
-  Songs
+  Songs,
+  DetailArtist,
+  ProfilePage,
 } from './pages'
+import ScrollToTop from './helpers/ScrollToTop'
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [accessToken, setAccessToken] = useState('')
+
+  useEffect(() => {
+    if (localStorage.access_token_local){
+      setAccessToken(localStorage.access_token_local)
+    }
+  }, [localStorage.access_token_local])
+
   return (
     <div className="App">
       <Router>
+        <ScrollToTop/>
         <Switch>
           <Route exact path="/">
             <LandingPage />
@@ -25,14 +38,20 @@ function App() {
           <Route path="/home" >
             <Home />
           </Route>
-          <Route exact path="/playlists" >
-            <PLaylistList />
+          <Route path="/dashboard/:access_token/:access_token_local/:refresh_token" >
+            <Home />
+          </Route>
+          <Route exact path="/profile" >
+           { accessToken  ? <ProfilePage /> : <Redirect to="/home" />}
+          </Route>
+          <Route exact path="/artists" >
+            <ArtistList />
+          </Route>
+          <Route exact path="/artist/:id">
+            <DetailArtist />
           </Route>
           <Route exact path="/artists/:genre" >
             <Artists />
-          </Route>
-          <Route path="/artists" >
-            <ArtistList />
           </Route>
           <Route exact path="/songs/:genre" >
             <Songs />
@@ -40,6 +59,7 @@ function App() {
           <Route path="/:children">
             <Children/>
           </Route>
+
         </Switch>
       </Router>
     </div>

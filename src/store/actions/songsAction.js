@@ -1,5 +1,5 @@
 import axios from 'axios'
-const spotifyAccessToken = 'BQBTLFy1qKDop-5TMjGuW4xcVbCc3UYlFneouLGAy0cEoTGoZBoC7it3wwLvH70vrjF8O_VwHVA5UMorwD6sn31nyjsCtVlItZuXQPG2EOkxSwhfPAp1btg4pwrQGr1wqUbaUXUT8-1sIi7ODdEGtPviExIu7K3U1S0IkVMl4qhlVcw9rXP2_nRZsP9Za0gJX6pc0F-HIGKp7WuGrLcWQPorKRESkCiSl1ZnJdee_cc4RKmij2m9zestSWc-2AXWXTexTRVHZ75w5sPaSuq6IxFjTA'
+let spotifyAccessToken = 'BQA0t0kfMOdBC7WnfCAIXvtEhNseAUBm77GFP_4TTcY8wT0PEq5wMbS8EnAsk5aIQHarwWqHQl5VkmyvXYwiJ7IDTqjOEERjJwUsstHAOL3_WJpd7y2_QaM4doEaD0112JjXxXqvXW1XixPNL0EHEd3kBnTSRg-Tq4W690Nl-1RYOSuf5iaKrMZJKUJyYL7rpztveLuu_O_MVMrE8n2ErYimN6DnJTDjjyusXxChGIxQG93tAuu-BBKZymk'
 const baseURL = 'https://api.spotify.com/v1'
 const random_wildcards = [
   '%25a%25',
@@ -122,7 +122,7 @@ export const fetchSongs = genre => {
 
     try {
       dispatch(fetchingSongs())
-      const songsDataHolder = []
+      let songsDataHolder = []
       for (let i = 0; i < random_wildcards.length; i++) {
         let randomize = random_wildcards[i]
         let songs = await axios({
@@ -143,10 +143,29 @@ export const fetchSongs = genre => {
         })
       }
       songsDataHolder.sort((a,b) => (b.value > a.value) ? 1 : ((a.value > b.value) ? -1 : 0))
-      dispatch(fetchedSongs(songsDataHolder.filter((v, i, a) => a.findIndex(t => (t._id === v._id)) === i)))
+      dispatch(fetchedSongs(songsDataHolder
+        .filter((v, i, a) => a.findIndex(t => (t._id === v._id)) === i)
+        .filter(genre => genre.preview_url)
+        ))
     }
 
     catch (err) {
+      if(err.response.data.error.status === 401) {
+        axios('http://localhost:6300/refresh',{
+          method: 'post',
+          data: {
+            refresh_token: 'AQCtUUG3wGfrPnm08O9mAqGtxRtZe9FTdvpEN6T13_0ANh8-LZ1gGLO37K3NSUrfX22PuInmXQBdrG73BumquPN_fDP3B0uJYZD2GJViUM5yohrdd2n4GKtYkXQObDgY7YA'
+          }
+        })
+          .then(({data}) => {
+            spotifyAccessToken = data.body.access_token
+            console.log(data)
+            dispatch(fetchSongs(genre))
+          })
+          .catch(err => {
+            console.log(err)
+          })
+        }
       dispatch(errorFetchSongs(err))
     }
   }
@@ -160,7 +179,7 @@ export const fetchArtists = genre => {
 
     try {
       dispatch(fetchingArtists())
-      const artistsDataHolder = []
+      let artistsDataHolder = []
       for (let i = 0; i < random_wildcards.length; i++) {
         let randomize = random_wildcards[i]
         let artists = await axios({
@@ -184,6 +203,23 @@ export const fetchArtists = genre => {
     }
 
     catch (err) {
+      console.log(err.response, '<<<<< dari function fetchArtis')
+      if(err.response.data.error.status === 401){
+        axios('http://localhost:6300/refresh',{
+          method: 'post',
+          data: {
+            refresh_token: 'AQCtUUG3wGfrPnm08O9mAqGtxRtZe9FTdvpEN6T13_0ANh8-LZ1gGLO37K3NSUrfX22PuInmXQBdrG73BumquPN_fDP3B0uJYZD2GJViUM5yohrdd2n4GKtYkXQObDgY7YA'
+          }
+        })
+          .then(({data}) => {
+            spotifyAccessToken = data.body.access_token
+            console.log(data)
+            dispatch(fetchArtists(genre))
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      }
       dispatch(errorFetchArtists(err))
     }
   }
@@ -197,7 +233,7 @@ export const fetchBubbleChildren = genre => {
 
     try {
       dispatch(fetchingBubbleChildren())
-      const genreDataHolder = []
+      let genreDataHolder = []
       for (let i = 0; i < random_wildcards.length; i++) {
         let randomize = random_wildcards[i]
         let bubbleChildren = await axios({
@@ -221,8 +257,24 @@ export const fetchBubbleChildren = genre => {
         .filter((v,i,a)=>a.findIndex(t=>(t._id === v._id))===i)
         .filter(genre => genre.preview_url)))
     }
-
     catch (err) {
+      console.log(err, '>>><<<<<<< function kedua')
+      if(err.response.data.error.status === 401){
+        axios('http://localhost:6300/refresh',{
+          method: 'post',
+          data: {
+            refresh_token: 'AQCtUUG3wGfrPnm08O9mAqGtxRtZe9FTdvpEN6T13_0ANh8-LZ1gGLO37K3NSUrfX22PuInmXQBdrG73BumquPN_fDP3B0uJYZD2GJViUM5yohrdd2n4GKtYkXQObDgY7YA'
+          }
+        })
+          .then(({data}) => {
+            spotifyAccessToken = data.body.access_token
+            console.log(data)
+            dispatch(fetchBubbleChildren(genre))
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      }
       dispatch(errorFetchBubbleChildren(err))
     }
   }
@@ -243,10 +295,27 @@ export const fetchBubbleArtists = artist => {
         },
         url: `${baseURL}/artists/${encodeURIComponent(artist)}/top-tracks?market=US`
       })
-      dispatch(fetchedBubbleArtists(artistTracks.data.tracks[0].preview_url))
+      dispatch(fetchedBubbleArtists(artistTracks.data.tracks[0]))
     }
 
     catch (err) {
+      console.log(err.response, '<<<<< dari function fetchArtis')
+      if(err.response.data.error.status === 401){
+        axios('http://localhost:6300/refresh',{
+          method: 'post',
+          data: {
+            refresh_token: 'AQCtUUG3wGfrPnm08O9mAqGtxRtZe9FTdvpEN6T13_0ANh8-LZ1gGLO37K3NSUrfX22PuInmXQBdrG73BumquPN_fDP3B0uJYZD2GJViUM5yohrdd2n4GKtYkXQObDgY7YA'
+          }
+        })
+          .then(({data}) => {
+            spotifyAccessToken = data.body.access_token
+            console.log(data)
+            dispatch(fetchBubbleArtists(artist))
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      }
       dispatch(errorFetchBubbleArtists(err))
     }
   }

@@ -8,49 +8,44 @@ export default function BubbleChartParent( { data } ) {
     data,
   })
   const history = useHistory()
-  var colorLegend = [
-    //reds from dark to light
-    {color: "#67000d", textColor: "#ffffff"}, 
-    "#a50f15", 
-    "#cb181d", 
-    "#ef3b2c", 
-    "#fb6a4a", 
-    "#fc9272", 
-    "#fcbba1", 
-    "#fee0d2",
-    //neutral grey
-    {color: "#f0f0f0", text: 'Neutral'},
-    // blues from light to dark
-    "#deebf7", 
-    "#c6dbef", 
-    "#9ecae1", 
-    "#6baed6", 
-    "#4292c6", 
-    "#2171b5",
-    {color:"transparent", textColor: '#ffffff'}, 
-    {color: "#08306b"}
-  ];
-  const handleClick = input => {
-    const isGroup = input.children !== undefined
+  let colorLegend = [
+    { color: "#3125b1", textColor: "#ffffff"},
+    { color: "#45b690", textColor: "#ffffff"},
+    { color: "#307f65", textColor: "#ffffff"},
+    { color: "#6770be", textColor: "#ffffff"},
+    { color: "#484e85", textColor: "#ffffff"},
+    { color: "#87c56a", textColor: "#ffffff" },
+    { color: "#109b78", textColor: "#ffffff" },
+    { color: "#b233a7", textColor: "#ffffff"}
+  ]
 
-    console.log(input._id)
-    if (isGroup) {
-      history.push(`/${input._id}`)
-    }
+  const handleClick = input => {
+    history.push(`/${input._id}`)
   }
 
   return (
-    <div>
+    <div className="d-flex">
+    <div className="d-flex flex-column" style={{marginTop: "66vh", marginLeft: "3vh"}}>
+      <span className="fw-lighter" style={{ fontSize: "0.7em", color: "#e2e2e1", whiteSpace: "nowrap"}}>
+        most popular
+      </span>
+      <span className="fw-lighter" style={{ marginTop: "14.5vh", fontSize: "0.7em", color: "#e2e2e1", whiteSpace: "nowrap"}}>
+        least popular
+      </span>
+    </div>
+    <div className="container-fluid" style={{ marginLeft: "-6vh"}}>
       <ReactBubbleChart
         {...data}
         className="chart__bubble"
         key={chartState.key}
         data={chartState.data}
         onClick={handleClick}
+        legend={true}
         colorLegend={colorLegend}
-        fixedDomain={{min: 0, max: 100}}
+        fontSizeFactor={0.3}
       />
     </div>
     
+    </div>
   )
 }
